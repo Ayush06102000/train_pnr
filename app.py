@@ -54,4 +54,4 @@ def index():
     return render_template('index.html', booking_status=None, current_status=None, train_source=None, train_destination=None, train_name=None)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=8000)
