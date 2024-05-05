@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNR Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Check PNR Status</h1>
+        <form method="post">
+            <label for="pnr">Enter PNR Number:</label>
+            <input type="text" id="pnr" name="pnr" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if booking_status %}
+        <div class="status-container">
+            <div class="status">
+                <h2>Passenger Booking Status:</h2>
+                <ul>
+                    {% for status in booking_status %}
+                        <li>{{ status }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="status">
+                <h2>Passenger Current Status:</h2>
+                <ul>
+                    {% for status in current_status %}
+                        <li>{{ status }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        {% if train_name %}
+        <div class="train-info">
+            <h2>Train Info:</h2>
+            <p><strong>Name:</strong> {{ train_name }}</p>
+            <p><strong>Source:</strong> {{ train_source }}</p>
+            <p><strong>Destination:</strong> {{ train_destination }}</p>
+            <p><strong>Class:</strong> {{ classes }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
