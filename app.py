@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 from pymongo import MongoClient
+from urllib.parse import quote 
 
 app = Flask(__name__)
 client = MongoClient('mongodb+srv://ayushkumar:Ayush%40123@cluster0.ruhlgi4.mongodb.net/')
